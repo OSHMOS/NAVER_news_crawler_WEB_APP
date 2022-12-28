@@ -65,8 +65,10 @@ def crawling(request):
 
 
 def export(request):
-    response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = 'attachment; filename="네이버 뉴스 스크랩.csv"'
+    response = HttpResponse(
+        content_type='text/csv',
+        headers={'Content-Disposition': 'attachment; filename="네이버 뉴스 스크랩.csv"'},
+    )
 
     writer = csv.writer(response)
     csv_file = open('네이버 뉴스 스크랩.csv', 'r')

@@ -1,20 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>네이버 뉴스 크롤러</title>
-</head>
-<body>
-  <form class="post-form" method="POST" action={% url 'crawling' %}>
-    {% csrf_token %}
-    <div class="form-group">
-      <label for="query">네이버 뉴스 검색 키워드</label>
-      <input type="text" class="form-control" name="query" id="query"
-              value="{{form.query.value|default_if_none:''}}">
-    </div>
-    <button type="submit" class="btn btn-primary">크롤링하기</button>
-  </form>
-  {% if alert %}
-    <div>{{alert}}</div>
-  {% endif %}
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+<form class="post-form" method="POST" action={% url 'crawling' %}>
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="query">네이버 뉴스 검색 키워드</label>
+    <input type="text" class="form-control" name="query" id="query"
+            value="{{form.query.value|default_if_none:''}}">
+  </div>
+  <button type="submit" class="btn btn-primary">크롤링하기</button>
+</form>
+{% if alert %}
+  <div>{{alert}}</div>
+{% endif %}
+{% endblock %}
