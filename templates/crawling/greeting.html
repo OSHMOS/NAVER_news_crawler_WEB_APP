@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
-<div>
-  이용해주셔서 감사합니다!
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <div>
+        이용해주셔서 감사합니다!
+      </div>
+      <a href={% url 'export' %} class="btn btn-success">엑셀 파일 다운로드</a>
+    </div>
+  </div>
 </div>
-<a href={% url 'export' %}>엑셀 파일 다운로드</a>
 {% endblock %}
