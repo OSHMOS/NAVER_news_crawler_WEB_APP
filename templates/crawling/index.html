@@ -2,25 +2,34 @@
 {% block content %}
 <div class="container mx-auto my-5">
   <div class="row">
-    <div class="col-12 col-lg-3 col-md-3 col-sm-12"></div>
-    <div class="col-12 col-lg-6 col-md-6 col-sm-12">
-      <div class="card">
-        <div class="card-body">
-          <h2>네이버 뉴스에 검색할 키워드를<br>입력해주세요.</h2>
-          <form class="post-form form-inline" method="POST" action={% url 'crawling' %}>
+    <div class="col-12 col-lg-4 col-md-2 col-sm-12"></div>
+    <div class="col-12 col-lg-4 col-md-8 col-sm-12">
+      <div class="card" id="main">
+        <div class="card-body mt-4 mb-1">
+          <h2>네이버 뉴스에 검색할</h2>
+          <h2><b>키워드</b>를</h2>
+          <h2>입력해주세요.</h2>
+          <form class="post-form" method="POST" action={% url 'crawling' %}>
             {% csrf_token %}
             <div class="form-gruop">
               <input type="text" class="form-control" name="query" id="query" placeholder='네이버 뉴스 검색 키워드'>
             </div>
-            <button type="submit" class="btn btn-primary my-3">크롤링하기</button>
+            <div class="d-flex justify-content-end">
+              <input type="submit" class="btn btn-primary mt-3 design" value="크롤링하기"/>
+              <button id="loading" class="btn btn-primary mt-3 design hidden" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                크롤링 중...
+              </button>
+            </div>
           </form>
-          {% if alert %}
-            <div>{{alert}}</div>
+          {% if alert1 and alert2 %}
+            <h3 id="alert">{{alert1}}</h3>
+            <h3 id="alert">{{alert2}}</h3>
           {% endif %}
         </div>
       </div>
     </div>
-    <div class="col-12 col-lg-3 col-md-3 col-sm-12"></div>
+    <div class="col-12 col-lg-4 col-md-2 col-sm-12"></div>
   </div>
 </div>
 {% endblock %}

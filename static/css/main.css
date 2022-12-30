@@ -1,0 +1,25 @@
+/* 인덱스 카드 디자인 */
+#main {
+  background-color: whitesmoke;
+  border-radius: 18px;
+}
+
+/* 크롤링 중인 버튼 지웠다가 나타내기 */
+.hidden {
+  display: none;
+}
+
+/* 버튼 디자인 */
+.design {
+  border-radius: 20px;
+}
+
+/* 경고 글씨 색 */
+#alert {
+  color: crimson;
+}
+
+/* 액셀 글씨 색 */
+#excel {
+  color: green;
+}

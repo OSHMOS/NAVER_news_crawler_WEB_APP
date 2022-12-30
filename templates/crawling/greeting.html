@@ -1,13 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container">
-  <div class="card">
-    <div class="card-body">
-      <div>
-        이용해주셔서 감사합니다!
+<div class="container mx-auto my-5">
+  <div class="row">
+    <div class="col-12 col-lg-4 col-md-2 col-sm-12"></div>
+    <div class="col-12 col-lg-4 col-md-8 col-sm-12">
+      <div class="card" id="main">
+        <div class="card-body my-3">
+          <h3>이용해 주셔 감사합니다.</h3>
+          <h3><b id="excel">엑셀</b> 파일 다운로드는</h3>
+          <h3>버튼을 눌러주세요.</h3>
+          <div class="d-flex justify-content-between">
+            <a href={% url 'index' %} class="btn btn-primary mt-3 design">이전</a>
+            <a href={% url 'export' %} class="btn btn-success mt-3 design">엑셀 파일 다운로드</a>
+          </div>
+        </div>
       </div>
-      <a href={% url 'export' %} class="btn btn-success">엑셀 파일 다운로드</a>
     </div>
+    <div class="col-12 col-lg-4 col-md-2 col-sm-12"></div>
   </div>
 </div>
 {% endblock %}

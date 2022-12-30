@@ -60,8 +60,9 @@ def crawling(request):
             return render(request, 'crawling/greeting.html')
         else:
             query = QueryForm()
-            alert = '검색 키워드는 한 글자 이상이어야만 합니다.'
-            return render(request, 'crawling/index.html', {'alert': alert})
+            alert1 = '검색 키워드는 한 글자'
+            alert2 = '이상이어야만 합니다.'
+            return render(request, 'crawling/index.html', {'alert1': alert1, 'alert2': alert2})
 
 
 def export(request):
