@@ -1,11 +1,7 @@
-const btn = document.querySelector('#btn');
+const submit = document.querySelector('#submit');
 const load = document.querySelector('#loading');
 
-function req (){
-  window.onsubmit = onLoading;
-};
-
 function onLoading (){
-  btn.className += ' hidden';
+  submit.className += ' hidden';
   load.classList.remove('hidden');
 };

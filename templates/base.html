@@ -9,12 +9,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{% static 'css/main.css'%}">
+  {% block scripts %}
+
+  {% endblock %}
   {% block css %}
   
   {% endblock %}
   <title>네이버 뉴스 크롤러</title>
 </head>
-<body onload="req();">
+<body>
   {% block content %}
   {% endblock %}
   <script src="{% static 'js/onloading.js' %}"></script>
