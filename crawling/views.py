@@ -28,8 +28,9 @@ def crawling(request):
                 url = f'https://search.naver.com/search.naver?where=news&sm=tab_pge&query={query}&sort=1&photo=0&field=0&pd=0&ds=&de=&mynews=0&office_type=0&office_section_code=0&news_office_checked=&nso=so:dd,p:all,a:all&start={LIMIT}1'
                 if 'start=4001' in url:  # 네이버는 기사를 최대 4,000건까지만 제공한다.
                     break
-
-                response = requests.get(url, verify=False)
+                
+                proxies = { "http": None, "https": None}
+                response = requests.get(url, proxies=proxies)
                 search_page = response.text
 
                 soup = BeautifulSoup(search_page, 'html.parser')
