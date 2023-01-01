@@ -26,13 +26,19 @@ def crawling(request):
             csv_writer.writerow(['뉴스 제목', '뉴스 링크', '언론사', '날짜'])
 
             while True:
-                time.sleep(5)
                 url = f'https://search.naver.com/search.naver?where=news&sm=tab_pge&query={query}&sort=1&photo=0&field=0&pd=0&ds=&de=&mynews=0&office_type=0&office_section_code=0&news_office_checked=&nso=so:dd,p:all,a:all&start={LIMIT}1'
                 if 'start=4001' in url:  # 네이버는 기사를 최대 4,000건까지만 제공한다.
                     break
                 
                 proxies = { "http": None, "https": None}
-                response = requests.get(url, proxies=proxies)
+                
+                try:
+                    response = requests.get(url, proxies=proxies)
+                    break
+                except:
+                    time.sleep(5)
+                    continue
+                    
                 search_page = response.text
 
                 soup = BeautifulSoup(search_page, 'html.parser')
