@@ -29,7 +29,7 @@ def crawling(request):
                 if 'start=4001' in url:  # 네이버는 기사를 최대 4,000건까지만 제공한다.
                     break
 
-                response = requests.get(url)
+                response = requests.get(url, verify=False)
                 search_page = response.text
 
                 soup = BeautifulSoup(search_page, 'html.parser')
