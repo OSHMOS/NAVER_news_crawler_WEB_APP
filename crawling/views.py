@@ -1,4 +1,5 @@
 import csv
+import time
 import requests
 from django.shortcuts import render, redirect
 from datetime import datetime
@@ -25,6 +26,7 @@ def crawling(request):
             csv_writer.writerow(['뉴스 제목', '뉴스 링크', '언론사', '날짜'])
 
             while True:
+                time.sleep(1)
                 url = f'https://search.naver.com/search.naver?where=news&sm=tab_pge&query={query}&sort=1&photo=0&field=0&pd=0&ds=&de=&mynews=0&office_type=0&office_section_code=0&news_office_checked=&nso=so:dd,p:all,a:all&start={LIMIT}1'
                 if 'start=4001' in url:  # 네이버는 기사를 최대 4,000건까지만 제공한다.
                     break
@@ -56,7 +58,6 @@ def crawling(request):
                         date = f'{datetime.now().year}-{datetime.now().month}-{datetime.now().day - int(date[0])}'
 
                     csv_writer.writerow([title, link, press, date])
-
                 LIMIT += 1
             return render(request, 'crawling/greeting.html')
         else:
