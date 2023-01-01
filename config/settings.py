@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-7$4lcao-0ffm65*i$gr0-9e8k$g4dg)i)%_=^q$mkuf_0tuzi%
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'navernewscrawler.pythonanywhere.com/'
+    'navernewscrawler.pythonanywhere.com'
 ]
 
 
